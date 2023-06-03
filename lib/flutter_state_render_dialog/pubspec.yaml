@@ -1,6 +1,6 @@
 name: flutter_state_render_dialog
 description: FlutterStateRenderDialog is a library that provides a set of customizable dialogs for rendering different states in a Flutter application, such as loading, error, and success states.
-version: 1.0.0
+version: 1.0.3
 homepage: https://github.com/Muhanned-Anwar/state_render
 issue_tracker: https://github.com/Muhanned-Anwar/state_render/issues
 
