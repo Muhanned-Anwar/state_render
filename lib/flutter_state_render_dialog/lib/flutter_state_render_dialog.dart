@@ -6,14 +6,16 @@ class StateRender extends StatelessWidget {
   final String message;
   final String title;
   final void Function()? retryAction;
+  final Widget? child;
 
-  StateRender({
-    Key? key,
-    required this.stateRenderType,
-    this.message = 'Loading',
-    this.title = '',
-    this.retryAction,
-  }) : super(key: key);
+  const StateRender(
+      {Key? key,
+      required this.stateRenderType,
+      this.message = 'Loading',
+      this.title = '',
+      this.retryAction,
+      this.child})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +24,14 @@ class StateRender extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
       ),
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             _buildAnimatedAsset(),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             _buildMessageText(),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             if (stateRenderType != StateRenderType.popUpLoadingState)
               _buildPopUpButton(),
           ],
@@ -61,11 +63,11 @@ class StateRender extends StatelessWidget {
 
   Widget _buildMessageText() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Text(
         message,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           color: Colors.black,
         ),
@@ -76,17 +78,20 @@ class StateRender extends StatelessWidget {
   Widget _buildPopUpButton() {
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: Colors.blue,
-          padding: EdgeInsets.symmetric(vertical: 12),
-        ),
-        onPressed: retryAction,
-        child: Text(
-          'OK',
-          style: TextStyle(fontSize: 16, color: Colors.white),
-        ),
-      ),
+      child: child ??
+          TextButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+            ),
+            onPressed: retryAction,
+            child: const Text(
+              'OK',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+          ),
     );
   }
 }
