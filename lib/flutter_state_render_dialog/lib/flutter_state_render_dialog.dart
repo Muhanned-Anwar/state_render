@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+dialogRender({
+  required BuildContext context,
+  required StateRenderType stateRenderType,
+  required String message,
+  required String title,
+  required retryAction,
+  Widget? child,
+}) {
+  showDialog(
+    context: context,
+    builder: (context) => StateRender(
+      stateRenderType: stateRenderType,
+      message: message,
+      title: title,
+      retryAction: retryAction,
+      child: child,
+    ),
+  );
+}
+
 class StateRender extends StatelessWidget {
   final StateRenderType stateRenderType;
   final String message;
