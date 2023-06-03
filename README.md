@@ -1,16 +1,39 @@
-# state_render
+# FlutterStateRenderDialog
 
-A new Flutter project.
+FlutterStateRenderDialog is a library that provides a set of customizable dialogs for rendering different states in a Flutter application, such as loading, error, and success states.
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter application.
+To use FlutterStateRenderDialog, add the following dependency to your `pubspec.yaml` file:
 
-A few resources to get you started if this is your first Flutter project:
+```yaml
+dependencies:
+  flutter_state_render_dialog: ^1.0.0
+```
+## Usage
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Import the package in your Dart file:
+`import 'package:flutter_state_render_dialog/flutter_state_render_dialog.dart';`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Use the `dialogRender` function to show the state render dialog:
+```dialogRender(
+  context: context,
+  stateRenderType: StateRenderType.popUpLoadingState,
+  message: 'Loading...',
+);
+```
+
+You can customize the dialog by providing additional parameters such as the dialog title, retry action, or a custom child widget.
+
+## StateRenderType
+The `StateRenderType` enum defines the different types of state render dialogs available:
+
+`popUpLoadingState`: Displays a loading state dialog.
+`popUpErrorState`: Displays an error state dialog.
+`popUpSuccessState`: Displays a success state dialog.
+
+## Contributing
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on the GitHub repository.
+
+## License
+This library is released under the MIT License.
