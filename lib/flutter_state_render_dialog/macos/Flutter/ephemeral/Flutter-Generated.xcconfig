@@ -1,10 +1,10 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/mohannadanwar/fvm/versions/3.7.7
-FLUTTER_APPLICATION_PATH=/Users/mohannadanwar/Desktop/Dev/Act Hub/Courses/state_render/lib/flutter_state_render_dialog
+FLUTTER_ROOT=/Users/blackside/documents/flutter
+FLUTTER_APPLICATION_PATH=/Users/blackside/StudioProjects/state_render/lib/flutter_state_render_dialog
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
-FLUTTER_BUILD_NAME=0.0.1
-FLUTTER_BUILD_NUMBER=0.0.1
+FLUTTER_BUILD_NAME=1.0.3
+FLUTTER_BUILD_NUMBER=1.0.3
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false

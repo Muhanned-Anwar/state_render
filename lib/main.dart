@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_render/flutter_state_render_dialog/lib/flutter_state_render_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,7 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          dialogRender(
+              context: context,
+              stateRenderType: StateRenderType.popUpLoadingState,
+              message: "message",
+              title: "title",
+              retryAction: () {});
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
