@@ -11,6 +11,14 @@ To use FlutterStateRenderDialog, add the following dependency to your `pubspec.y
 dependencies:
   flutter_state_render_dialog: ^1.0.3
 ```
+```
+Note:/ Add The Assets To Assets Folder
+1. Get The Files lib/flutter_state_render_dialog
+2. Add The Files To Your Project (Assets Folder)
+3. Add This Lines To Pubspec.yaml:
+  assets:
+    - assets/json/
+
 
 ## Usage
 
