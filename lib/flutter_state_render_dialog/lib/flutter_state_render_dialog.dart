@@ -6,7 +6,7 @@ dialogRender({
   required StateRenderType stateRenderType,
   required String message,
   required String title,
-  required retryAction,
+  retryAction,
   Widget? child,
 }) {
   showDialog(
