@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_render/flutter_state_render_dialog/lib/flutter_state_render_dialog.dart';
+import 'package:flutter_state_render_dialog/flutter_state_render_dialog.dart';
 
 void main() {
   runApp(const MyApp());
