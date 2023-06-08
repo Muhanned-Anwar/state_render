@@ -9,16 +9,40 @@ To use FlutterStateRenderDialog, add the following dependency to your `pubspec.y
 
 ```yaml
 dependencies:
-  flutter_state_render_dialog: ^1.0.3
+  flutter_state_render_dialog: ^1.0.5
 ```
-```
-Note:/ Add The Assets To Assets Folder
-1. Get The Files lib/flutter_state_render_dialog
-2. Add The Files To Your Project (Assets Folder)
-3. Add This Lines To Pubspec.yaml:
-  assets:
-    - assets/json/
 
+
+## Asset Setup
+
+In order to use FlutterStateRenderDialog, you need to add the required JSON assets to your project.
+1- Create a folder named assets in the root of your Flutter project.
+2- Inside the assets folder, create another folder named json.
+3- Place the following JSON files inside the json folder:
+- `loading.json`
+- `error.json`
+- `success.json`
+Here's an example directory structure:
+```
+your_flutter_project/
+├── lib/
+├── assets/
+│   └── json/
+│       ├── loading.json
+│       ├── error.json
+│       └── success.json
+└── pubspec.yaml
+```
+
+Make sure to update the pubspec.yaml file of your project to include the assets:
+
+```
+flutter:
+  assets:
+    - assets/json/loading.json
+    - assets/json/error.json
+    - assets/json/success.json
+```
 
 ## Usage
 
