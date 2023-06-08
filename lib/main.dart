@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_state_render_dialog/flutter_state_render_dialog.dart';
+
+import 'flutter_state_render_dialog/lib/flutter_state_render_dialog.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,7 @@ class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   void _showDialog(BuildContext context) {
-    dialogRender(
+    DialogRender.show(
       context: context,
       stateRenderType: StateRenderType.popUpLoadingState,
       message: 'Loading...',
@@ -33,30 +35,31 @@ class MyHomePage extends StatelessWidget {
 
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.of(context).pop();
-      dialogRender(
-          context: context,
-          stateRenderType: StateRenderType.popUpSuccessState,
-          message: 'Thanks',
-          title: '',
-          retryAction: () {
-            Navigator.of(context).pop();
-            dialogRender(
-              context: context,
-              stateRenderType: StateRenderType.popUpErrorState,
-              message: 'Error',
-              title: '',
-              child: MaterialButton(
-                color: Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('Ok'),
+      DialogRender.show(
+        context: context,
+        stateRenderType: StateRenderType.popUpSuccessState,
+        message: 'Thanks',
+        title: '',
+        retryAction: () {
+          Navigator.of(context).pop();
+          DialogRender.show(
+            context: context,
+            stateRenderType: StateRenderType.popUpErrorState,
+            message: 'Error',
+            title: '',
+            child: MaterialButton(
+              color: Colors.grey,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
-            );
-          });
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Ok'),
+            ),
+          );
+        },
+      );
     });
   }
 
