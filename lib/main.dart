@@ -31,10 +31,10 @@ class MyHomePage extends StatelessWidget {
       title: '',
     );
 
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pop();
       dialogRender(
-          context: context,
+        context: context,
           stateRenderType: StateRenderType.popUpSuccessState,
           message: 'Thanks',
           title: '',
@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget {
             Navigator.of(context).pop();
             dialogRender(
               context: context,
-              stateRenderType: StateRenderType.popUpErrorState,
+              stateRenderType: StateRenderType.popUpWarningState,
               message: 'Error',
               title: '',
               child: MaterialButton(

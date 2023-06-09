@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'core/manager_assets.dart';
 
 dialogRender({
-  required BuildContext context,
+  required context,
   required StateRenderType stateRenderType,
   required String message,
   required String title,
@@ -64,13 +65,16 @@ class StateRender extends StatelessWidget {
     String animatedAsset = '';
     switch (stateRenderType) {
       case StateRenderType.popUpLoadingState:
-        animatedAsset = 'assets/json/loading.json';
+        animatedAsset = ManagerAssets.loading;
         break;
       case StateRenderType.popUpErrorState:
-        animatedAsset = 'assets/json/error.json';
+        animatedAsset = ManagerAssets.error;
         break;
       case StateRenderType.popUpSuccessState:
-        animatedAsset = 'assets/json/success.json';
+        animatedAsset = ManagerAssets.success;
+        break;
+      case StateRenderType.popUpWarningState:
+        animatedAsset = ManagerAssets.warning;
         break;
     }
 
@@ -120,4 +124,5 @@ enum StateRenderType {
   popUpLoadingState,
   popUpErrorState,
   popUpSuccessState,
+  popUpWarningState,
 }
