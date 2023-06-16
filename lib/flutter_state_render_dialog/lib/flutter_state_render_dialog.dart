@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'core/manager_assets.dart';
 
-class DialogRender {
-  static void show({
-    required BuildContext context,
-    required StateRenderType stateRenderType,
-    required String message,
-    String title = '',
-    void Function()? retryAction,
-    Widget? child,
-  }) {
-    showDialog(
-      context: context,
-      builder: (context) => StateRender(
-        stateRenderType: stateRenderType,
-        message: message,
-        title: title,
-        retryAction: retryAction,
-        child: child,
-      ),
-    );
-  }
+dialogRender({
+  required context,
+  required StateRenderType stateRenderType,
+  required String message,
+  required String title,
+  retryAction,
+  Widget? child,
+}) {
+  showDialog(
+    context: context,
+    builder: (context) => StateRender(
+      stateRenderType: stateRenderType,
+      message: message,
+      title: title,
+      retryAction: retryAction,
+      child: child,
+    ),
+  );
 }
 
 class StateRender extends StatelessWidget {
@@ -30,27 +29,14 @@ class StateRender extends StatelessWidget {
   final void Function()? retryAction;
   final Widget? child;
 
-  const StateRender({
-    Key? key,
-    required this.stateRenderType,
-    required this.message,
-    this.title = '',
-    this.retryAction,
-    this.child,
-  }) : super(key: key);
-
-  String get animatedAsset {
-    switch (stateRenderType) {
-      case StateRenderType.popUpLoadingState:
-        return 'assets/json/loading.json';
-      case StateRenderType.popUpErrorState:
-        return 'assets/json/error.json';
-      case StateRenderType.popUpSuccessState:
-        return 'assets/json/success.json';
-      default:
-        return '';
-    }
-  }
+  const StateRender(
+      {Key? key,
+      required this.stateRenderType,
+      this.message = 'Loading',
+      this.title = '',
+      this.retryAction,
+      this.child})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +62,22 @@ class StateRender extends StatelessWidget {
   }
 
   Widget _buildAnimatedAsset() {
+    String animatedAsset = '';
+    switch (stateRenderType) {
+      case StateRenderType.popUpLoadingState:
+        animatedAsset = ManagerAssets.loading;
+        break;
+      case StateRenderType.popUpErrorState:
+        animatedAsset = ManagerAssets.error;
+        break;
+      case StateRenderType.popUpSuccessState:
+        animatedAsset = ManagerAssets.success;
+        break;
+      case StateRenderType.popUpWarningState:
+        animatedAsset = ManagerAssets.warning;
+        break;
+    }
+
     return SizedBox(
       height: 100,
       width: 100,
@@ -102,7 +104,7 @@ class StateRender extends StatelessWidget {
       width: double.infinity,
       child: child ??
           TextButton(
-            style: TextButton.styleFrom(
+            style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 12),
             ),
             onPressed: retryAction,
@@ -122,4 +124,5 @@ enum StateRenderType {
   popUpLoadingState,
   popUpErrorState,
   popUpSuccessState,
+  popUpWarningState,
 }
