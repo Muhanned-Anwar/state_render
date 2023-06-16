@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_state_render_dialog/flutter_state_render_dialog.dart';
+import 'package:state_render/flutter_state_render_dialog/lib/flutter_state_render_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget {
             Navigator.of(context).pop();
             dialogRender(
               context: context,
-              stateRenderType: StateRenderType.popUpWarningState,
+              stateRenderType: StateRenderType.popUpErrorState,
               message: 'Error',
               title: '',
               child: MaterialButton(
@@ -52,6 +52,22 @@ class MyHomePage extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.of(context).pop();
+                  dialogRender(
+                    context: context,
+                    stateRenderType: StateRenderType.popUpWarningState,
+                    message: 'Warning',
+                    title: '',
+                    child: MaterialButton(
+                      color: Colors.grey,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('Ok'),
+                    ),
+                  );
                 },
                 child: const Text('Ok'),
               ),
